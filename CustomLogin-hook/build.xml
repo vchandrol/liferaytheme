@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+
+<project name="CustomLogin-hook" basedir="." default="deploy">
+	<import file="F:\Liferay Projects 2015\EmployeeMgmt_Workspace\liferay-plugins-sdk-6.2\hooks/build-common-hook.xml" />
+</project>

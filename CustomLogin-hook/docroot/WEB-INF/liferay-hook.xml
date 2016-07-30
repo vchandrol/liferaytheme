@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hook PUBLIC "-//Liferay//DTD Hook 6.1.0//EN" "http://www.liferay.com/dtd/liferay-hook_6_1_0.dtd">
+<hook>
+    <portal-properties>portal.properties</portal-properties>
+    <custom-jsp-dir>/custom_jsps</custom-jsp-dir>
+    <struts-action>
+		<struts-action-path>/portal/google_login</struts-action-path>
+		<struts-action-impl>com.liferay.google.GoogleOAuth</struts-action-impl>
+	</struts-action>
+	
+	<struts-action>
+		<struts-action-path>/login/forgot_password</struts-action-path>
+		<struts-action-impl>com.liferay.password.ForgotPassword</struts-action-impl>
+	</struts-action>
+	
+	
+</hook>
