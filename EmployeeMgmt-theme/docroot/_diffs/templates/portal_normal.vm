@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+	<script src="$javascript_folder/jquery.js"></script>
+	<script src="$javascript_folder/bootstrap.js"></script>
+	<link href="$css_folder/style.css" rel="stylesheet" media="screen" title="default">
+	<link rel="stylesheet" href="$css_folder/datepicker.min.css" />
+    <link rel="stylesheet" href="$css_folder/datepicker3.min.css" />
+    <script src="$javascript_folder/bootstrap-datepicker.min.js"></script>
+	 	
+	
+	$theme.include($top_head_include)
+	<style>
+			
+		.footer-license {
+		    background: #333 none repeat scroll 0 0;
+		    color: #fff;
+		    font-size: 10px;
+		    padding: 0;
+		}
+		.footer-license>.aui-layout-content{
+		  margin-left:100px;
+		}
+		.footer-license .vertical-padding {
+		    padding: 7px 0 5px;
+		}
+		.footer-license .copy-right {
+		    line-height: 14px;
+		}
+		.portlet-content {
+		    box-shadow: 0 2px 10px 1px #a00000;
+		    min-height: 400px;
+		}
+	</style>
+</head>
+
+<body class="$css_class">
+
+<a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
+
+$theme.include($body_top_include)
+
+#if ($is_signed_in)
+	#dockbar()
+#end
+
+
+ <div class="boxed animated fadeIn animation-delay-5">
+      <header id="header" class="hidden-xs">
+            <div class="container">
+                <div id="header-title">
+                    <h1 class="animated fadeInDown">Technotract Inc.</h1>
+                    <p class="animated fadeInLeft">Portal Development</p>
+                </div>
+                #if (!$is_signed_in)
+			       <a href="#" id="sign-up" rel="nofollow" style="margin-left:5px;"><input type="button" class="btn btn-danger" value="New User?"/></a>
+				   <a data-redirect="$is_login_redirect_required" href="$sign_in_url" id="sign-in" rel="nofollow"><input type="button" class="btn btn-danger" value="LogIn"/></a>
+			     	
+				#end
+            </div> 
+        </header>
+ 		
+		
+
+		#if ($has_navigation || $is_signed_in)
+			#parse ("$full_templates_path/navigation.vm")
+		#end
+		
+		<div id="content">
+			<!--<nav id="breadcrumbs">#breadcrumbs()</nav>-->
+	
+			#if ($selectable)
+				$theme.include($content_include)
+			#else
+				$portletDisplay.recycle()
+	
+				$portletDisplay.setTitle($the_title)
+	
+				$theme.wrapPortlet("portlet.vm", $content_include)
+			#end
+		</div>
+		
+		
+		
+		
+		
+		
+ </div>
+ 
+<footer id="footer" style="display:block">
+  <div class="footer-fixed">
+      <div class="footer footer-license">
+			<div class="main-wrapper aui-layout-content">
+				 <div id="lowerWidthRef" class="aui-column vertical-padding">
+					<div class="aui-column-content">
+						<span class="copy-right">© 2015 Technotract,Inc. All rights reserved.</span>
+					</div>
+				 </div>
+				 <div class="aui-column vertical-padding">
+					<div class="aui-column-content">
+						<ul class="menu-aligned menu-border">
+							<li>
+								<a href="http://www.google.com"> Google </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>			
+  </div>
+</footer>
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+</body>
+
+</html>
